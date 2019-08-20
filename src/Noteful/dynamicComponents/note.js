@@ -3,9 +3,8 @@ import './note.css';
 
 class Note extends Component {
   render() {
-    console.log(this.props.note, 'props in Note component');
     return (
-      <div className="note">
+      <div className="note" key={this.props.note.id}>
         <div className="noteName">{this.props.note.name}</div>
         <div className="noteModified">
           Modified on: {this.props.note.modified}

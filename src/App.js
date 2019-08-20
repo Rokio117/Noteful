@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Header from './Noteful/header';
 import Sidebar from './Noteful/sidebar';
@@ -16,7 +16,10 @@ class App extends Component {
     console.log(this.state, 'state');
     return (
       <div className="App">
-        <Route exact path="/" render={() => <MainPage info={this.state} />} />
+        <Switch>
+          <Route exact path="/" render={() => <MainPage info={this.state} />} />
+          <Route render={() => <MainPage info={this.state} />} />
+        </Switch>
       </div>
     );
   }

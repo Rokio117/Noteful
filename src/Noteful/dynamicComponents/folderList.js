@@ -7,7 +7,7 @@ class FolderList extends Component {
     return (
       <div key={folders.name}>
         {folders.map(folder => (
-          <Folder name={folder.name} />
+          <Folder name={folder.name} key={folder.id} />
         ))}
       </div>
     );

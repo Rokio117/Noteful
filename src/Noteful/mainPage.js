@@ -6,8 +6,6 @@ import MainSection from './mainSection';
 
 class MainPage extends Component {
   render() {
-    console.log(this.props.info.INFO.folders, 'folders');
-    // console.log(this.props.info.notes, 'notes');
     return (
       <>
         <Header />
