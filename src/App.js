@@ -6,6 +6,7 @@ import Sidebar from './Noteful/sidebar';
 import MainSection from './Noteful/mainSection';
 import MainPage from './Noteful/mainPage';
 import INFO from './store';
+import LinkTest from './Noteful/linkTest';
 
 class App extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path="/" render={() => <MainPage info={this.state} />} />
-          <Route render={() => <MainPage info={this.state} />} />
+          <Route component={LinkTest} />
         </Switch>
       </div>
     );
