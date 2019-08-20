@@ -1,0 +1,13 @@
+.note {
+  box-sizing: border-box;
+  border: 1px solid black;
+  text-align: center;
+  margin: 12px;
+}
+.noteName {
+  font-weight: bold;
+  margin: 8px;
+}
+.noteModified {
+  margin-bottom: 8px;
+}

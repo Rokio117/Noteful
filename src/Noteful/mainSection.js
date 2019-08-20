@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './mainSection.css';
-import noteList from './dynamicComponents/noteList';
+import NoteList from './dynamicComponents/noteList';
 
 class MainSection extends Component {
   render() {
+    console.log(this.props, 'props in mainSection');
     return (
       <div id="mainSection">
-        <noteList notes={this.props.notes} />
+        <NoteList notes={this.props} />
       </div>
     );
   }
