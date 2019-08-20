@@ -1,0 +1,8 @@
+#sidebar {
+  box-sizing: border-box;
+  border: 1px solid black;
+  position: absolute;
+  top: 90px;
+  bottom: 0px;
+  width: 30%;
+}
