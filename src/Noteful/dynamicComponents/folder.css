@@ -1,0 +1,9 @@
+.folder {
+  box-sizing: border-box;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50px;
+  text-align: center;
+  border: 1px solid black;
+}
