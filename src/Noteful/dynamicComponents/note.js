@@ -4,11 +4,16 @@ import { Link } from 'react-router-dom';
 
 class Note extends Component {
   render() {
-    const noteId = this.props.pathInfo.match.params.noteId;
+    const noteId = this.props.pathInfo
+      ? this.props.pathInfo.match.params.noteId
+      : null;
     console.log(this.props, 'props in Note in note path');
-    const folderName = this.props.info.find(folder => folder.id === noteId)
-      .name;
-    const noteObject = this.props.info.find(note => note.id === noteId);
+    const folderName = this.props.info
+      ? this.props.info.find(folder => folder.id === noteId).name
+      : null;
+    const noteObject = this.props.info
+      ? this.props.info.find(note => note.id === noteId)
+      : null;
     console.log(folderName, 'folder name');
     console.log(noteObject, 'note name');
     return (
