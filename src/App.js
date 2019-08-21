@@ -23,6 +23,7 @@ class App extends Component {
           <Route
             path="/note/:noteId"
             component={props => {
+              console.log(props, 'props in note path');
               return <NotePage info={this.state} pathInfo={props} />;
             }}
           />

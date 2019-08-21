@@ -4,14 +4,31 @@ import { Link } from 'react-router-dom';
 
 class Note extends Component {
   render() {
+    const noteId = this.props.pathInfo.match.params.noteId;
+    console.log(this.props, 'props in Note in note path');
+    const folderName = this.props.info.find(folder => folder.id === noteId)
+      .name;
+    const noteObject = this.props.info.find(note => note.id === noteId);
+    console.log(folderName, 'folder name');
+    console.log(noteObject, 'note name');
     return (
       <div className="note">
-        <Link key={this.props.note.id} to={`/note/${this.props.note.id}`}>
-          <div className="noteName">{this.props.note.name}</div>
-          <div className="noteModified">
-            Modified on: {this.props.note.modified}
+        {this.props.pathInfo ? (
+          <div>
+            <div className="notename">{noteObject.name}</div>
+            <div className="noteModified">
+              Modified on: {noteObject.modified}
+            </div>
+            <p className="noteContent">{noteObject.content}</p>
           </div>
-        </Link>
+        ) : (
+          <Link key={this.props.note.id} to={`/note/${this.props.note.id}`}>
+            <div className="noteName">{this.props.note.name}</div>
+            <div className="noteModified">
+              Modified on: {this.props.note.modified}
+            </div>
+          </Link>
+        )}
       </div>
     );
   }

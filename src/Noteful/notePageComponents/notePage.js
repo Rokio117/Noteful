@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import SideBar from '../sidebar';
 import Header from '../header';
-import MainSection from '../mainSection';
-import './mainPage.css';
+import NotePageMainSection from './notePageMainSection';
+import '../mainPage.css';
 
 class NotePage extends Component {
   render() {
@@ -10,8 +10,14 @@ class NotePage extends Component {
       <>
         <Header />
         <div id="mainPage">
-          <SideBar info={this.props.info.INFO.folders} />
-          <MainSection info={this.props.info.INFO.notes} />
+          <SideBar
+            info={this.props.info.INFO.folders}
+            pathInfo={this.props.pathInfo}
+          />
+          <NotePageMainSection
+            info={this.props.info.INFO.notes}
+            pathInfo={this.props.pathInfo}
+          />
         </div>
       </>
     );
