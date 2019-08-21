@@ -10,6 +10,7 @@ class FolderList extends Component {
         {folders.map(folder => (
           <Folder name={folder.name} id={folder.id} />
         ))}
+        <button>Add Folder</button>
       </div>
     );
   }

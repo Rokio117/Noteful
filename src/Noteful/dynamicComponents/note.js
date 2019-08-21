@@ -18,6 +18,7 @@ class Note extends Component {
             <div className="noteModified">
               Modified on: {noteObject.modified}
             </div>
+            <button>Delete Note</button>
             <p className="noteContent">{noteObject.content}</p>
           </div>
         ) : (
@@ -26,6 +27,7 @@ class Note extends Component {
             <div className="noteModified">
               Modified on: {this.props.note.modified}
             </div>
+            <button>Delete Note</button>
           </Link>
         )}
       </div>

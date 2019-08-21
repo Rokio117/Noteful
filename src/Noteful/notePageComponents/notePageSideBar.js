@@ -11,7 +11,7 @@ class notePageSideBar extends Component {
       <div>
         <Link
           className="goBackButton"
-          //to={this.props.pathInfo.history.push('/')}
+          to={() => this.props.pathInfo.history.goBack()}
         >
           Go Back
         </Link>
