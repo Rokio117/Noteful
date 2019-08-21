@@ -10,4 +10,11 @@
 }
 .noteModified {
   margin-bottom: 8px;
+  text-decoration: none;
+}
+.note,
+.noteName,
+.noteModified {
+  color: black;
+  text-decoration: none;
 }

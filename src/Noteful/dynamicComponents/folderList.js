@@ -4,7 +4,6 @@ import './folderList.css';
 
 class FolderList extends Component {
   render() {
-    console.log(this.props.folders, 'props.folders in FolderList');
     const folders = this.props.folders;
     return (
       <div className="folderList">
