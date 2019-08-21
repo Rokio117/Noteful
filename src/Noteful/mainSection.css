@@ -1,8 +1,14 @@
-#mainSection {
+/* #mainSection {
   box-sizing: border-box;
   border: 1px solid black;
   position: relative;
   top: 0%;
   width: 70%;
-  left: 30%;
+  left: 30%; */
+
+#mainSection {
+  width: 70%;
+  box-sizing: border-box;
+  border: 1px solid black;
+  display: inline-block;
 }

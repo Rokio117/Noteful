@@ -1,4 +1,4 @@
-#sidebar {
+/* #sidebar {
   box-sizing: border-box;
   border: 1px solid black;
   position: relative;
@@ -6,4 +6,11 @@
   display: inline-block;
   top: 0px;
   padding: 10px;
+} */
+
+#sidebar {
+  width: 30%;
+  box-sizing: border-box;
+  border: 1px solid black;
+  display: inline-block;
 }
