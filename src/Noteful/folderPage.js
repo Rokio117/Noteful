@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SideBar from './sideBar/sidebar';
 import Header from './header/header';
 import MainSection from './mainSection/mainSection';
-import './mainPage.css';
+import '../Noteful/mainSection/mainSection.css';
 
 class FolderPage extends Component {
   render() {

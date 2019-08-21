@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../mainSection.css';
+import '../mainpage/mainPage.css';
 
 import Note from '../dynamicComponents/note';
 
