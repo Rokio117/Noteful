@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class notePageSideBar extends Component {
   render() {
     console.log(this.props.pathInfo, 'prop info in notePageSideBar');
-    console.log(this.props.info, 'info in notePageSideBar');
-    console.log(this.props.notes, 'notes in notepageSideBar');
+    const noteId = this.props.pathInfo.match.params.noteId;
+    const folderId = this.props.notes.find(note => note.id === noteId).folderId;
+    const folderName = this.props.info.find(id => id.id === folderId).name;
     return (
       <div>
-        <button className="goBackButton">Go Back</button>
-        <h2>{}</h2>
+        <Link
+          className="goBackButton"
+          //to={this.props.pathInfo.history.push('/')}
+        >
+          Go Back
+        </Link>
+        <h2>{folderName}</h2>
       </div>
     );
   }

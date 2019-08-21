@@ -10,7 +10,7 @@ class Folder extends Component {
         to={`/folder/${this.props.id}`}
         className="folder"
       >
-        Folder{this.props.name}
+        Folder: {this.props.name}
       </NavLink>
     );
   }

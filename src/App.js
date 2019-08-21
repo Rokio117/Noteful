@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import Header from './Noteful/header';
-import Sidebar from './Noteful/sidebar';
-import MainSection from './Noteful/mainSection';
-import MainPage from './Noteful/mainPage';
+import Header from './Noteful/header/header';
+import Sidebar from './Noteful/sideBar/sidebar';
+import MainSection from './Noteful/mainSection/mainSection';
+import MainPage from './Noteful/mainpage/mainPage';
 import INFO from './store';
 import LinkTest from './Noteful/linkTest';
 import FolderPage from './Noteful/folderPage';
@@ -23,7 +23,6 @@ class App extends Component {
           <Route
             path="/note/:noteId"
             component={props => {
-              console.log(props, 'props in note path');
               return <NotePage info={this.state} pathInfo={props} />;
             }}
           />

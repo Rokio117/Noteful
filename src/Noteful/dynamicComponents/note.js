@@ -7,15 +7,9 @@ class Note extends Component {
     const noteId = this.props.pathInfo
       ? this.props.pathInfo.match.params.noteId
       : null;
-    console.log(this.props, 'props in Note in note path');
-    const folderName = this.props.info
-      ? this.props.info.find(folder => folder.id === noteId).name
-      : null;
     const noteObject = this.props.info
       ? this.props.info.find(note => note.id === noteId)
       : null;
-    console.log(folderName, 'folder name');
-    console.log(noteObject, 'note name');
     return (
       <div className="note">
         {this.props.pathInfo ? (

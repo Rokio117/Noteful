@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SideBar from '../sidebar';
-import Header from '../header';
+import SideBar from '../sideBar/sidebar';
+import Header from '../header/header';
 import NotePageMainSection from './notePageMainSection';
 import '../mainPage.css';
 

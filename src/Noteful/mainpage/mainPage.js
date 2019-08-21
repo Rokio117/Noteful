@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import mainSection from './mainSection';
-import SideBar from './sidebar';
-import Header from './header';
-import MainSection from './mainSection';
+import mainSection from '../mainSection/mainSection';
+import SideBar from '../sideBar/sidebar';
+import Header from '../header/header';
+import MainSection from '../mainSection/mainSection';
 import './mainPage.css';
 
 class MainPage extends Component {

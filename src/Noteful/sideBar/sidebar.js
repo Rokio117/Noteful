@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './sidebar.css';
-import FolderList from './dynamicComponents/folderList';
-import NotePageSideBar from './notePageComponents/notePageSideBar';
+import FolderList from '../dynamicComponents/folderList';
+import NotePageSideBar from '../notePageComponents/notePageSideBar';
 
 class Sidebar extends Component {
   render() {

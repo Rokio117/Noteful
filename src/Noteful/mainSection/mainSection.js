@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './mainSection.css';
-import NoteList from './dynamicComponents/noteList';
+import NoteList from '../dynamicComponents/noteList';
 
 class MainSection extends Component {
   render() {
