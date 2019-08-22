@@ -9,12 +9,12 @@ class notePageSideBar extends Component {
     const folderName = this.props.info.find(id => id.id === folderId).name;
     return (
       <div>
-        <Link
+        <button
           className="goBackButton"
-          to={() => this.props.pathInfo.history.goBack()}
+          onClick={() => this.props.pathInfo.history.goBack()}
         >
           Go Back
-        </Link>
+        </button>
         <h2>{folderName}</h2>
       </div>
     );
