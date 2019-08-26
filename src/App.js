@@ -37,6 +37,28 @@ class App extends Component {
       </div>
     );
   }
+
+  componentDidMount() {
+    fetch('http://localhost:9090/folders', {
+      method: 'GET'
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(response => {
+        console.log(response);
+        this.setState({ folders: response });
+      });
+    fetch('http://localhost:9090/notes')
+      .then(response => {
+        return response.json();
+      })
+      .then(notes => {
+        console.log(notes);
+        this.setState({ notes: notes });
+        console.log(this.state, 'state');
+      });
+  }
 }
 
 export default App;
