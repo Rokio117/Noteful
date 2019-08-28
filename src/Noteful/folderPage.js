@@ -3,6 +3,7 @@ import SideBar from './sideBar/sidebar';
 import Header from './header/header';
 import MainSection from './mainSection/mainSection';
 import '../Noteful/mainSection/mainSection.css';
+import NotefulContext from '../../context';
 
 class FolderPage extends Component {
   render() {
@@ -15,13 +16,19 @@ class FolderPage extends Component {
     const selectedFolder = notes.filter(note => note.folderId === folderId);
     console.log(selectedFolder);
     return (
-      <>
-        <Header />
-        <div id="mainPage">
-          <SideBar info={this.props.info.INFO.folders} />
-          <MainSection info={selectedFolder} />
-        </div>
-      </>
+      <NotefulContext.Consumer>
+        {value => {
+          return (
+            <>
+              <Header />
+              <div id="mainPage">
+                <SideBar info={value.folders} />
+                <MainSection info={selectedFolder} />
+              </div>
+            </>
+          );
+        }}
+      </NotefulContext.Consumer>
     );
   }
 }
