@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import Header from './Noteful/header/header';
-import Sidebar from './Noteful/sideBar/sidebar';
-import MainSection from './Noteful/mainSection/mainSection';
 import MainPage from './Noteful/mainpage/mainPage';
-import INFO from './store';
 import LinkTest from './Noteful/linkTest';
 import FolderPage from './Noteful/folderPage';
 import NotePage from './Noteful/notePageComponents/notePage';
@@ -15,6 +11,28 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { folders: [], notes: [] };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:9090/folders', {
+      method: 'GET'
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(response => {
+        console.log(response);
+        this.setState({ folders: response });
+      });
+    fetch('http://localhost:9090/notes')
+      .then(response => {
+        return response.json();
+      })
+      .then(notes => {
+        console.log(notes);
+        this.setState({ notes: notes });
+        console.log(this.state, 'state');
+      });
   }
   render() {
     return (
@@ -45,28 +63,6 @@ class App extends Component {
         </div>
       </NotefulContext.provider>
     );
-  }
-
-  componentDidMount() {
-    fetch('http://localhost:9090/folders', {
-      method: 'GET'
-    })
-      .then(response => {
-        return response.json();
-      })
-      .then(response => {
-        console.log(response);
-        this.setState({ folders: response });
-      });
-    fetch('http://localhost:9090/notes')
-      .then(response => {
-        return response.json();
-      })
-      .then(notes => {
-        console.log(notes);
-        this.setState({ notes: notes });
-        console.log(this.state, 'state');
-      });
   }
 }
 

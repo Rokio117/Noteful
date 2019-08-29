@@ -3,7 +3,7 @@ import SideBar from './sideBar/sidebar';
 import Header from './header/header';
 import MainSection from './mainSection/mainSection';
 import '../Noteful/mainSection/mainSection.css';
-import NotefulContext from '../../context';
+import NotefulContext from '../context';
 
 class FolderPage extends Component {
   render() {

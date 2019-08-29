@@ -3,7 +3,7 @@ import SideBar from '../sideBar/sidebar';
 import Header from '../header/header';
 import MainSection from '../mainSection/mainSection';
 import './mainPage.css';
-import NotefulContext from '../src/context';
+import NotefulContext from '../.././context';
 
 class MainPage extends Component {
   render() {

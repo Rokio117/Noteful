@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './note.css';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class Note extends Component {
   render() {
     const noteId = this.props.pathInfo
-      ? this.props.pathInfo.match.params.noteId
+      ? this.props.history.match.params.noteId
       : null;
     const noteObject = this.props.info
       ? this.props.info.find(note => note.id === noteId)
@@ -34,4 +35,4 @@ class Note extends Component {
     );
   }
 }
-export default Note;
+export default withRouter(Note);
