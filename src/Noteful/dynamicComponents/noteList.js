@@ -6,12 +6,17 @@ class NoteList extends Component {
   render() {
     return (
       <NotefulContext.Consumer>
-        {' '}
-        <div className="noteList">
-          {this.props.notes.info.map(note => (
-            <Note note={note} />
-          ))}
-        </div>
+        {value => {
+          console.log('value in NoteList', value);
+          return (
+            <div className="noteList">
+              {value.notes.info.map(note => (
+                <Note note={note} />
+              ))}
+            </div>
+          );
+        }}
+        }
       </NotefulContext.Consumer>
     );
   }
