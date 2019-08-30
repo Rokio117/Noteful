@@ -6,15 +6,18 @@ import Note from './note';
 
 class FolderList extends Component {
   render() {
-    const folders = this.props.folders;
     return (
       <NotefulContext.Consumer>
-        <div className="folderList">
-          {folders.map(folder => (
-            <Folder name={folder.name} id={folder.id} />
-          ))}
-          <button>Add Folder</button>
-        </div>
+        {value => {
+          return (
+            <div className="folderList">
+              {value.folders.map(folder => (
+                <Folder name={folder.name} id={folder.id} />
+              ))}
+              <button>Add Folder</button>
+            </div>
+          );
+        }}
       </NotefulContext.Consumer>
     );
   }

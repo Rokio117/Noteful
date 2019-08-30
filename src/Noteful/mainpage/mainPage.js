@@ -8,20 +8,13 @@ import NotefulContext from '../.././context';
 class MainPage extends Component {
   render() {
     return (
-      <NotefulContext.Consumer>
-        {value => {
-          //console.log(value, 'value in consumer on mainpage');
-          return (
-            <>
-              <Header />
-              <div id="mainPage">
-                <SideBar info={value.folders} />
-                <MainSection info={value.notes} />
-              </div>
-            </>
-          );
-        }}
-      </NotefulContext.Consumer>
+      <>
+        <Header />
+        <div id="mainPage">
+          <SideBar />
+          <MainSection />
+        </div>
+      </>
     );
   }
 }
