@@ -39,7 +39,7 @@ class App extends Component {
       <NotefulContext.provider
         value={{ folders: this.state.folders, notes: this.state.notes }}
       >
-        <div>FUCK</div>
+        <div>Help</div>
       </NotefulContext.provider>
     );
   }
