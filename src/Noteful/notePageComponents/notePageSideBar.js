@@ -10,7 +10,6 @@ class notePageSideBar extends Component {
     return (
       <NotefulContext.Consumer>
         {value => {
-          console.log(value, 'value in notePageSideBar');
           return (
             <div>
               <button

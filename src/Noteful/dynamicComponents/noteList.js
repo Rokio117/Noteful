@@ -7,7 +7,6 @@ class NoteList extends Component {
     return (
       <NotefulContext.Consumer>
         {value => {
-          console.log('value in NoteList', value);
           return (
             <div className="noteList">
               {value.notes.info.map(note => (
