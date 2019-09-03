@@ -16,7 +16,7 @@ class Note extends Component {
 
     return (
       <div className="note">
-        {this.props.history.pathname !== '/' ? (
+        {this.props.checked ? (
           <div>
             <div className="notename">{this.props.info.name}</div>
             <div className="noteModified">
