@@ -10,11 +10,7 @@ class NotePage extends Component {
       <>
         <Header />
         <div id="mainPage">
-          <SideBar
-            notes={this.props.notes}
-            info={this.props.folders}
-            pathInfo={this.props.pathInfo}
-          />
+          <SideBar />
           <NotePageMainSection
             info={this.props.info.INFO.notes}
             pathInfo={this.props.pathInfo}

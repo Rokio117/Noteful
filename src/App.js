@@ -36,9 +36,7 @@ class App extends Component {
   }
   render() {
     return (
-      <NotefulContext.Provider
-        value={{ folders: this.state.folders, notes: this.state.notes }}
-      >
+      <NotefulContext.Provider value={{ value: this.state }}>
         <div className="App">
           <Switch>
             <Route

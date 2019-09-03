@@ -10,7 +10,7 @@ class Sidebar extends Component {
       <NotefulContext.Consumer>
         {value => (
           <div id="sidebar">
-            {value.selected ? <NotePageSideBar /> : <FolderList />}
+            {value.value.checked ? <NotePageSideBar /> : <FolderList />}
           </div>
         )}
       </NotefulContext.Consumer>

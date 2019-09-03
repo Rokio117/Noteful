@@ -5,15 +5,17 @@ import { withRouter } from 'react-router-dom';
 
 class Note extends Component {
   render() {
-    const noteId = this.props.pathInfo
+    console.log(this.props.history);
+    const noteId = this.props.history
       ? this.props.history.match.params.noteId
       : null;
     const noteObject = this.props.info
       ? this.props.info.find(note => note.id === noteId)
       : null;
+
     return (
       <div className="note">
-        {this.props.pathInfo ? (
+        {this.props.history ? (
           <div>
             <div className="notename">{noteObject.name}</div>
             <div className="noteModified">

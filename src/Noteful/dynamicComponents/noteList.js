@@ -7,15 +7,15 @@ class NoteList extends Component {
     return (
       <NotefulContext.Consumer>
         {value => {
+          console.log(value.value);
           return (
             <div className="noteList">
-              {value.notes.info.map(note => (
-                <Note note={note} />
+              {value.value.notes.map(note => (
+                <Note info={note} />
               ))}
             </div>
           );
         }}
-        }
       </NotefulContext.Consumer>
     );
   }
