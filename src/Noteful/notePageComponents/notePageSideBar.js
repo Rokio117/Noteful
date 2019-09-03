@@ -10,6 +10,14 @@ class notePageSideBar extends Component {
     return (
       <NotefulContext.Consumer>
         {value => {
+          console.log(this.props.history, 'history in notePageSideBar');
+          const noteId = this.props.history.match
+            ? this.props.history.match.params.noteId
+            : null;
+          const folderId = value.notes.find(note => note.id === noteId)
+            .folderId;
+          const folderName = value.info.find(id => id.id === folderId).name;
+
           return (
             <div>
               <button
@@ -18,16 +26,7 @@ class notePageSideBar extends Component {
               >
                 Go Back
               </button>
-              <h2>
-                {function(value) {
-                  const noteId = this.props.history.match.params.noteId;
-                  const folderId = value.notes.find(note => note.id === noteId)
-                    .folderId;
-                  const folderName = value.info.find(id => id.id === folderId)
-                    .name;
-                  return folderName;
-                }}
-              </h2>
+              <h2>{folderName}</h2>
             </div>
           );
         }}

@@ -11,7 +11,7 @@ class NoteList extends Component {
           return (
             <div className="noteList">
               {value.value.notes.map(note => (
-                <Note info={note} />
+                <Note info={note} checked={value.checked} />
               ))}
             </div>
           );
