@@ -4,10 +4,10 @@ import NoteList from '../dynamicComponents/noteList';
 
 class MainSection extends Component {
   render() {
-    console.log(this.props, 'props in MainSection');
+    //console.log(this.props, 'props in MainSection');
     return (
       <div id="mainSection">
-        <NoteList notes={this.props} />
+        <NoteList selected={this.props.info} />
       </div>
     );
   }
