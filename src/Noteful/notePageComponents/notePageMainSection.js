@@ -9,7 +9,14 @@ class NotePageMainSection extends Component {
     return (
       <NotefulContext.Consumer>
         {value => {
-          console.log(this.props.history, 'history in NotepageMainSection');
+          console.log(value, 'value in NotepageMainSection');
+          const noteId = this.props.history.location.pathname.replace(
+            '/note/',
+            ''
+          );
+          const note = value.value.notes;
+
+          console.log(noteId, note);
           return (
             <div id="mainSection">
               <Note info={value.notes[0]} />

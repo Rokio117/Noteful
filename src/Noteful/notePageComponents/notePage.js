@@ -12,8 +12,8 @@ class NotePage extends Component {
         <div id="mainPage">
           <SideBar />
           <NotePageMainSection
-            info={this.props.info.INFO.notes}
-            pathInfo={this.props.pathInfo}
+          //info={this.props.info.INFO.notes}
+          //pathInfo={this.props.pathInfo}
           />
         </div>
       </>

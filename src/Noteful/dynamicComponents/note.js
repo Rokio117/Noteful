@@ -5,8 +5,8 @@ import { withRouter } from 'react-router-dom';
 
 class Note extends Component {
   render() {
-    console.log(this.props.history, 'history in Note');
-    console.log(this.props.info, 'props in Note');
+    //console.log(this.props.history, 'history in Note');
+    //console.log(this.props.info, 'props in Note');
     // const noteId = this.props.history.match
     //   ? this.props.history.match.params.noteId
     //   : null;
