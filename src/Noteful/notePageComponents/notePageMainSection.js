@@ -14,12 +14,13 @@ class NotePageMainSection extends Component {
             '/note/',
             ''
           );
-          const note = value.value.notes;
+          const noteInfo = value.value.notes;
+          const note = noteInfo.filter(note => note.id === noteId);
 
-          console.log(noteId, note);
+          console.log(note, 'note');
           return (
             <div id="mainSection">
-              <Note info={value.notes[0]} />
+              <Note info={note} />
             </div>
           );
         }}

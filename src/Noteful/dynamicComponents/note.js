@@ -13,17 +13,17 @@ class Note extends Component {
     // const noteObject = this.props.info
     //   ? this.props.info.find(note => note.id === noteId)
     //   : null;
-
+    console.log(this.props.info[0], 'props in Note');
     return (
       <div className="note">
-        {this.props.checked ? (
+        {this.props.info[0] ? (
           <div>
-            <div className="notename">{this.props.info.name}</div>
+            <div className="notename">{this.props.info[0].name}</div>
             <div className="noteModified">
-              Modified on: {this.props.info.modified}
+              Modified on: {this.props.info[0].modified}
             </div>
             <button>Delete Note</button>
-            <p className="noteContent">{this.props.info.content}</p>
+            <p className="noteContent">{this.props.info[0].content}</p>
           </div>
         ) : (
           <Link key={this.props.info.id} to={`/note/${this.props.info.id}`}>
