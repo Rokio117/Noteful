@@ -34,9 +34,17 @@ class App extends Component {
         console.log(this.state, 'state');
       });
   }
+
+  handleDelete = (note, path) => {
+    const notes = this.state.notes.filter(noteId => note !== noteId.id);
+    console.log(notes, path);
+    this.setState({ notes });
+  };
   render() {
     return (
-      <NotefulContext.Provider value={{ value: this.state }}>
+      <NotefulContext.Provider
+        value={{ value: this.state, handleDelete: this.handleDelete }}
+      >
         <div className="App">
           <Switch>
             <Route
