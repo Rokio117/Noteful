@@ -6,6 +6,7 @@ import LinkTest from './Noteful/linkTest';
 import FolderPage from './Noteful/folderPage';
 import NotePage from './Noteful/notePageComponents/notePage';
 import NotefulContext from './context';
+import FolderList from '.././src/Noteful/addFolder/addFolder';
 
 class App extends Component {
   constructor(props) {
@@ -64,6 +65,7 @@ class App extends Component {
                 return <FolderPage info={this.state} pathInfo={props} />;
               }}
             />
+            <Route exact path="/addFolder" component={FolderList} />
             <Route component={LinkTest} />
           </Switch>
         </div>

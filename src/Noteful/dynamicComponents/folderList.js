@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Folder from './folder';
 import './folderList.css';
 import NotefulContext from '../.././context';
+import { Link } from 'react-router-dom';
 
 class FolderList extends Component {
   render() {
@@ -13,7 +14,7 @@ class FolderList extends Component {
               {value.value.folders.map(folder => (
                 <Folder name={folder.name} id={folder.id} />
               ))}
-              <button>Add Folder</button>
+              <Link to="/addFolder">Add Folder</Link>
             </div>
           );
         }}
