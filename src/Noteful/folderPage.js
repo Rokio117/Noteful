@@ -8,26 +8,17 @@ import { withRouter } from 'react-router-dom';
 
 class FolderPage extends Component {
   render() {
-    console.log(
-      this.props.pathInfo.match.params.folderId,
-      'this.props.pathinfo in FolderPage'
-    );
     return (
       <NotefulContext.Consumer>
         {value => {
-          //console.log(value.value, 'value.notes');
-          //console.log(this.props.history, 'history in folderpage');
-          //const folderId = this.props.history.match.params.folderId;
           const folderId = this.props.history.location.pathname.replace(
             '/folder/',
             ''
           );
-          //console.log(folderId);
           const notes = value.value.notes;
           const selectedFolder = notes.filter(
             note => note.folderId === folderId
           );
-          //console.log(selectedFolder, 'selected folder');
           return (
             <>
               <Header />

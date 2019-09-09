@@ -11,9 +11,11 @@ class FolderList extends Component {
         {value => {
           return (
             <div className="folderList">
-              {value.value.folders.map(folder => (
-                <Folder name={folder.name} id={folder.id} />
-              ))}
+              {value.value.folders.map(folder =>
+                folder.name ? (
+                  <Folder name={folder.name} id={folder.id} />
+                ) : null
+              )}
               <Link to="/addFolder">Add Folder</Link>
             </div>
           );

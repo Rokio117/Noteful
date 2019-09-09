@@ -5,19 +5,9 @@ import { withRouter } from 'react-router-dom';
 import NotefulContext from '../../context';
 class Note extends Component {
   render() {
-    //console.log(this.props.history, 'history in Note');
-    //console.log(this.props.info, 'props in Note');
-    // const noteId = this.props.history.match
-    //   ? this.props.history.match.params.noteId
-    //   : null;
-    // const noteObject = this.props.info
-    //   ? this.props.info.find(note => note.id === noteId)
-    //   : null;
-    console.log(this.props.info, 'props in Note');
     return (
       <NotefulContext>
         {context => {
-          console.log(context.handleDelete, 'context in note');
           return (
             <div className="note">
               {this.props.info[0] ? (
@@ -29,7 +19,6 @@ class Note extends Component {
                   <button
                     onClick={() => {
                       context.handleDelete(this.props.info[0].id, 0);
-                      console.log(this.props.history, 'history in onClick');
                       this.props.history.push('/');
                     }}
                   >

@@ -36,6 +36,13 @@ class App extends Component {
       });
   }
 
+  state = this.state;
+
+  handleAddFolder = response => {
+    console.log('handleAddFolder Ran');
+    this.setState({ folders: response });
+  };
+
   handleDelete = (note, path) => {
     const notes = this.state.notes.filter(noteId => note !== noteId.id);
     console.log(notes, path);
@@ -44,7 +51,11 @@ class App extends Component {
   render() {
     return (
       <NotefulContext.Provider
-        value={{ value: this.state, handleDelete: this.handleDelete }}
+        value={{
+          value: this.state,
+          handleDelete: this.handleDelete,
+          handleAddFolder: this.handleAddFolder
+        }}
       >
         <div className="App">
           <Switch>
