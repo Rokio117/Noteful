@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './folder.css';
 import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Folder extends Component {
   render() {
@@ -13,7 +14,9 @@ class Folder extends Component {
         >
           Folder: {this.props.name}
         </NavLink>
-        <button>Add Note</button>
+        <Link to="/addNote" id="addNote">
+          Add Note
+        </Link>
       </div>
     );
   }
