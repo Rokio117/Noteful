@@ -16,7 +16,9 @@ class FolderList extends Component {
                   <Folder name={folder.name} id={folder.id} />
                 ) : null
               )}
-              <Link to="/addFolder">Add Folder</Link>
+              <Link to="/addFolder" className="addFolderButton">
+                Add Folder
+              </Link>
             </div>
           );
         }}
