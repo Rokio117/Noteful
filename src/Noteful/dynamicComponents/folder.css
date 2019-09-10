@@ -1,14 +1,28 @@
 .folder {
   box-sizing: border-box;
-  width: 70%;
+
   margin-left: auto;
   margin-right: auto;
-  height: 50px;
+
   text-align: center;
   border: 1px solid black;
   padding: 8px;
-  margin: 8px;
+  margin: 15px;
 }
 .active {
   background-color: aqua;
+}
+
+#addNote {
+  box-sizing: border-box;
+  margin: 20px;
+  display: block;
+  border: 1px solid black;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: buttontext;
+  background-color: buttonface;
+  text-decoration: none;
 }

@@ -7,7 +7,7 @@ import FolderPage from './Noteful/folderPage';
 import NotePage from './Noteful/notePageComponents/notePage';
 import NotefulContext from './context';
 import FolderList from '.././src/Noteful/addFolder/addFolder';
-
+import AddNote from './/./Noteful/addNote/addNote';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -79,6 +79,7 @@ class App extends Component {
               }}
             />
             <Route exact path="/addFolder" component={FolderList} />
+            <Route exact path="/addNote" component={AddNote} />
             <Route component={LinkTest} />
           </Switch>
         </div>
