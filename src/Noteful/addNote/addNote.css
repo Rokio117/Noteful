@@ -18,3 +18,23 @@
   margin-top: 15px;
   margin-bottom: 20px;
 }
+
+#cancelButton {
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+#submitButton {
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+#folderSelect {
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+}

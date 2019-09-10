@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Note from './note';
 import NotefulContext from '../../context';
+import { Link } from 'react-router-dom';
 
 class NoteList extends Component {
   render() {
@@ -14,12 +15,19 @@ class NoteList extends Component {
               {this.props.selected.map(note => (
                 <Note info={note} checked={value.checked} />
               ))}
+              <Link to="/addNote" id="addNote" key={` ${this.props.id}`}>
+                Add Note
+              </Link>
             </div>
           ) : (
             <div className="noteList">
               {value.value.notes.map(note => (
                 <Note info={note} checked={value.checked} />
               ))}
+              <Link to="/addNote" id="addNote" key={` ${this.props.id}`}>
+                Add Note
+              </Link>
+              ;
             </div>
           );
         }}
