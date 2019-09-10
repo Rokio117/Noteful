@@ -11,7 +11,7 @@ import FolderList from '.././src/Noteful/addFolder/addFolder';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { folders: [], notes: [], checked: false };
+    this.state = { folders: [], notes: [], checked: false, stateChange: 0 };
   }
 
   componentDidMount() {
@@ -40,7 +40,9 @@ class App extends Component {
 
   handleAddFolder = response => {
     console.log('handleAddFolder Ran');
-    this.setState({ folders: response });
+    let stateCount = this.state.stateChange;
+    this.setState({ folders: response, stateChange: `${stateCount + 1}` });
+    console.log(this.state.stateChange);
   };
 
   handleDelete = (note, path) => {
