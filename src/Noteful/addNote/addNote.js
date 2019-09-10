@@ -13,7 +13,7 @@ class AddNote extends Component {
     this.state = {
       folder: { folderName: '', changed: false },
       noteName: { name: '', changed: false },
-      content: { content: '', touched: false }
+      content: { content: '', changed: false }
     };
   }
   nameChange(name) {
@@ -27,8 +27,8 @@ class AddNote extends Component {
   validateName() {
     const name = this.state.noteName;
     if (name.changed) {
-      if (name.name.length === 0) {
-        return 'Please enter a name';
+      if (name.name.length > 60) {
+        return 'name must be less than 60 characters';
       }
       if (name.name.length < 3) {
         return 'name must be at least three characters';
@@ -39,11 +39,11 @@ class AddNote extends Component {
   validateContent() {
     const content = this.state.content;
     if (content.changed) {
-      if (content.length === 0) {
-        return 'please add a note';
+      if (content.content.length < 3) {
+        return 'note must be at least three characters';
       }
-      if (content.length > 600) {
-        return 'note must be less than 600 characters';
+      if (content.content.length > 1000) {
+        return 'note must be less than 1000 characters';
       }
     }
   }
@@ -76,7 +76,7 @@ class AddNote extends Component {
                   className="nameText"
                   onChange={e => this.nameChange(e.target.value)}
                 ></input>
-                <ValidationError message={this.validateName} />
+                <ValidationError message={this.validateName()} />
                 <label>notes:</label>
                 <textarea
                   id="textarea"
