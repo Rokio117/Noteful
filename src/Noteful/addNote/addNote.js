@@ -23,6 +23,10 @@ class AddNote extends Component {
     this.setState({ content: { content: content, changed: true } });
     console.log(content);
   }
+  folderChange(folder) {
+    this.setState({ folder: { folderName: folder, changed: true } });
+    console.log(folder, 'folder id');
+  }
 
   validateName() {
     const name = this.state.noteName;
@@ -48,28 +52,68 @@ class AddNote extends Component {
     }
   }
   render() {
-    console.log(this.props.history.location.key, 'key in addnote');
+    //console.log(this.props.history.location.key, 'key in addnote');
 
     return (
       <NotefulContext.Consumer>
         {value => {
-          console.log(value, 'value in AddNote');
+          //console.log(value, 'value in AddNote');
           const folders = value.value.folders.map(folder => {
-            return <option value="folder.id">{folder.name}</option>;
+            return (
+              <option value={folder.name} key={folder.name}>
+                {folder.name}
+              </option>
+            );
           });
+
+          const folderId = value.value.folders.filter(
+            folder => folder.name === this.state.folder.folderName
+          );
 
           return (
             <fieldset>
               <form
                 id="noteField"
                 onSubmit={e => {
+                  console.log(folderId[0].id);
+                  console.log(e, 'event in onsubmit');
                   e.preventDefault();
+                  const date = new Date();
+                  fetch('http://localhost:9090/notes', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                      name: this.state.noteName.name,
+                      modified: date,
+                      folderId: folderId[0].id,
+                      content: this.state.content.content
+                    }),
+                    headers: { 'Content-Type': 'application/json' }
+                  })
+                    .then(response => response.json())
+                    .then(responseJson =>
+                      console.log(
+                        responseJson,
+                        'response in note server post request'
+                      )
+                    );
+                  console.log(folderId, 'folderId');
+
                   this.props.history.goBack();
                 }}
               >
                 <h2>Add a Note</h2>
                 <label htmlFor="folderSelect">Pick a Folder</label>
-                <select id="folderSelect">{folders}</select>
+                <select
+                  id="folderSelect"
+                  name="selectFolder"
+                  onChange={e => {
+                    console.log(e, 'event in folderselect on change');
+                    this.folderChange(e.target.value);
+                  }}
+                >
+                  <option>Pick a folder</option>
+                  {folders}
+                </select>
                 <label htmlFor="nametext">Enter a name</label>
                 <input
                   type="text"
