@@ -27,7 +27,6 @@ class NoteList extends Component {
               <Link to="/addNote" id="addNote" key={` ${this.props.id}`}>
                 Add Note
               </Link>
-              ;
             </div>
           );
         }}
