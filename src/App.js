@@ -42,8 +42,7 @@ class App extends Component {
   handleAddFolder = response => {
     console.log('handleAddFolder Ran');
     let stateCount = this.state.stateChange;
-    const oldFolders = this.state.folders;
-    const folders = oldFolders.push(response);
+    let folders = this.state.folders.push(response);
     this.setState({ stateChange: `${stateCount + 1}` });
     console.log(this.state.folders, 'folders', folders, 'new folders');
   };
