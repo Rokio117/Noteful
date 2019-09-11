@@ -40,26 +40,37 @@ class App extends Component {
   state = this.state;
 
   handleAddFolder = response => {
-    console.log('handleAddFolder Ran');
     let stateCount = this.state.stateChange;
-    let folders = this.state.folders.push(response);
+    this.state.folders.push(response);
     this.setState({ stateChange: `${stateCount + 1}` });
-    console.log(this.state.folders, 'folders', folders, 'new folders');
   };
   handleAddNote = response => {
-    console.log('handleAddNote ran');
-    let notes = this.state.notes;
-    let newNotes = this.state.notes.push(response);
+    this.state.notes.push(response);
     let stateCount = this.state.stateChange;
     this.setState({ stateChange: `${stateCount + 1}` });
-    console.log(notes, 'notes');
-    console.log(newNotes, 'new notes, should be 1 longer than notes');
   };
 
   handleDelete = (note, path) => {
     const notes = this.state.notes.filter(noteId => note !== noteId.id);
     console.log(notes, path);
     this.setState({ notes });
+    fetch(`http://localhost:9090/notes/${note}`, {
+      method: 'DELETE'
+    })
+      .then(response => response.json())
+      .then(responseJson => console.log(responseJson, ' responseJson'));
+  };
+
+  handleDeleteFolder = folder => {
+    const folderId = this.state.folders.filter(
+      folderId => folder !== folderId.id
+    );
+    fetch(`http://localhost:9090/folders/${folder}`, {
+      method: 'DELETE'
+    });
+    this.setState({ folders: folderId });
+    console.log(folder, 'folderId in handld delete folder');
+    console.log(folderId, 'filtered folder');
   };
   render() {
     return (
@@ -68,7 +79,8 @@ class App extends Component {
           value: this.state,
           handleDelete: this.handleDelete,
           handleAddFolder: this.handleAddFolder,
-          handleAddNote: this.handleAddNote
+          handleAddNote: this.handleAddNote,
+          handleDeleteFolder: this.handleDeleteFolder
         }}
       >
         <div className="App">
