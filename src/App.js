@@ -44,6 +44,15 @@ class App extends Component {
     this.setState({ folders: response, stateChange: `${stateCount + 1}` });
     console.log(this.state.stateChange);
   };
+  handleAddNote = response => {
+    console.log('handleAddNote ran');
+    let notes = this.state.notes;
+    let newNotes = this.state.notes.push(response);
+    let stateCount = this.state.stateChange;
+    this.setState({ stateChange: `${stateCount + 1}` });
+    console.log(notes, 'notes');
+    console.log(newNotes, 'new notes, should be 1 longer than notes');
+  };
 
   handleDelete = (note, path) => {
     const notes = this.state.notes.filter(noteId => note !== noteId.id);
@@ -56,7 +65,8 @@ class App extends Component {
         value={{
           value: this.state,
           handleDelete: this.handleDelete,
-          handleAddFolder: this.handleAddFolder
+          handleAddFolder: this.handleAddFolder,
+          handleAddNote: this.handleAddNote
         }}
       >
         <div className="App">

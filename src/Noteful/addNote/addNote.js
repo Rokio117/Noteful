@@ -90,12 +90,13 @@ class AddNote extends Component {
                     headers: { 'Content-Type': 'application/json' }
                   })
                     .then(response => response.json())
-                    .then(responseJson =>
+                    .then(responseJson => {
+                      value.handleAddNote(responseJson);
                       console.log(
                         responseJson,
                         'response in note server post request'
-                      )
-                    );
+                      );
+                    });
                   console.log(folderId, 'folderId');
 
                   this.props.history.goBack();
