@@ -9,6 +9,8 @@ class FolderList extends Component {
     return (
       <NotefulContext.Consumer>
         {value => {
+          console.log(value, 'value in folderlist');
+          console.log(value.value.folders, 'value.value.folders in FolderList');
           return (
             <div className="folderList">
               {value.value.folders.map(folder =>

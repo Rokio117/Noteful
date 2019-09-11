@@ -39,19 +39,9 @@ class addFolder extends Component {
                     headers: { 'Content-Type': 'application/json' }
                   })
                     .then(response => response.json())
-                    .then(responseJson =>
-                      console.log(responseJson, 'responseJson')
-                    );
-                  fetch('http://localhost:9090/folders')
-                    .then(response => {
-                      return response.json();
-                    })
                     .then(responseJson => {
+                      console.log(responseJson, 'responseJson');
                       value.handleAddFolder(responseJson);
-                      console.log(
-                        responseJson,
-                        'response in 2nd fetch request'
-                      );
                     });
 
                   //value.handleAddFolder();

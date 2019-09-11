@@ -8,6 +8,7 @@ import NotePage from './Noteful/notePageComponents/notePage';
 import NotefulContext from './context';
 import FolderList from '.././src/Noteful/addFolder/addFolder';
 import AddNote from './/./Noteful/addNote/addNote';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +23,7 @@ class App extends Component {
         return response.json();
       })
       .then(response => {
-        console.log(response);
+        console.log(response, 'first folder response');
         this.setState({ folders: response });
       });
     fetch('http://localhost:9090/notes')
@@ -41,8 +42,10 @@ class App extends Component {
   handleAddFolder = response => {
     console.log('handleAddFolder Ran');
     let stateCount = this.state.stateChange;
-    this.setState({ folders: response, stateChange: `${stateCount + 1}` });
-    console.log(this.state.stateChange);
+    const oldFolders = this.state.folders;
+    const folders = oldFolders.push(response);
+    this.setState({ stateChange: `${stateCount + 1}` });
+    console.log(this.state.folders, 'folders', folders, 'new folders');
   };
   handleAddNote = response => {
     console.log('handleAddNote ran');
