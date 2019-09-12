@@ -20,8 +20,8 @@ class NoteList extends Component {
             </div>
           ) : (
             <div className="noteList">
-              {value.value.notes.map(note => (
-                <Note info={note} checked={value.checked} />
+              {value.value.notes.map((note, i) => (
+                <Note info={note} checked={value.checked} key={i++} />
               ))}
               <Link to="/addNote" id="addNote" key={` ${this.props.id}`}>
                 Add Note
