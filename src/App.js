@@ -47,7 +47,8 @@ class App extends Component {
     this.setState({ stateChange: `${stateCount + 1}` });
   };
 
-  handleDelete = (note, path) => {
+  handleDelete = note => {
+    console.log(note, 'note in handleDelete');
     const notes = this.state.notes.filter(noteId => note !== noteId.id);
     this.setState({ notes });
     fetch(`http://localhost:9090/notes/${note}`, {

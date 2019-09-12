@@ -11,9 +11,9 @@ class Folder extends Component {
       <NotefulContext.Consumer>
         {value => {
           return (
-            <div className="folder" key={this.props.id}>
+            <div className="folder" key={`key${this.props.id}`}>
               <NavLink
-                //key={this.props.id}
+                key={`navKey${this.props.id}`}
                 to={`/folder/${this.props.id}`}
                 className="folder"
               >

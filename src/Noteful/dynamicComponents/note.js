@@ -18,7 +18,7 @@ class Note extends Component {
                   </div>
                   <button
                     onClick={() => {
-                      context.handleDelete(this.props.info[0].id, 0);
+                      context.handleDelete(this.props.info[0].id);
                       this.props.history.push('/');
                     }}
                   >
