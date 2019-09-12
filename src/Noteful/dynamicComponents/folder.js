@@ -3,6 +3,7 @@ import './folder.css';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import NotefulContext from '../../context';
+import PropTypes from 'prop-types';
 
 class Folder extends Component {
   render() {
@@ -33,5 +34,9 @@ class Folder extends Component {
     );
   }
 }
+
+Folder.propTypes = {
+  value: PropTypes.object
+};
 
 export default Folder;

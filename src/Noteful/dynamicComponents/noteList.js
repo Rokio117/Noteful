@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import Note from './note';
 import NotefulContext from '../../context';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class NoteList extends Component {
   render() {
-    //console.log(this.props, 'props in notelist');
+    console.log(this.props, 'props in notelist');
     return (
       <NotefulContext.Consumer>
         {value => {
@@ -34,5 +35,9 @@ class NoteList extends Component {
     );
   }
 }
+
+NoteList.propTypes = {
+  value: PropTypes.object
+};
 
 export default NoteList;

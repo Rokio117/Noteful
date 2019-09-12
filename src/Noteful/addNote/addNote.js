@@ -135,7 +135,7 @@ class AddNote extends Component {
                 </button>
                 <button
                   id="cancelButton"
-                  onClick={() => this.props.history.goBack()}
+                  onClick={() => this.props.history.push('/')}
                 >
                   Cancel
                 </button>

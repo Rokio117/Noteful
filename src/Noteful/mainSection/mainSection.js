@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './mainSection.css';
 import NoteList from '../dynamicComponents/noteList';
+import PropTypes from 'prop-types';
 
 class MainSection extends Component {
   render() {
@@ -12,5 +13,9 @@ class MainSection extends Component {
     );
   }
 }
+
+MainSection.propTypes = {
+  value: PropTypes.object
+};
 
 export default MainSection;
