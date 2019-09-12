@@ -27,12 +27,12 @@ class AddNote extends Component {
   }
 
   validateName() {
-    const name = this.state.noteName.name.trim();
-    if (name.changed) {
-      if (name.name.length > 60) {
+    const name = this.state.noteName.name;
+    if (this.state.noteName.changed || this.state.noteName.name.length) {
+      if (name.length > 60) {
         return 'name must be less than 60 characters';
       }
-      if (name.name.length < 3) {
+      if (name.trim().length < 3) {
         return 'name must be at least three characters';
       }
     }
@@ -45,12 +45,11 @@ class AddNote extends Component {
   }
 
   validateContent() {
-    const content = this.state.content.content.trim();
-    if (content.changed) {
-      if (content.length < 3) {
+    if (this.state.content.changed) {
+      if (this.state.content.content.trim().length < 3) {
         return 'note must be at least three characters';
       }
-      if (content.length > 1000) {
+      if (this.state.content.content.length > 1000) {
         return 'note must be less than 1000 characters';
       }
     }
