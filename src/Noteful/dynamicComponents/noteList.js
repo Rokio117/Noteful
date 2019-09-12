@@ -6,11 +6,9 @@ import PropTypes from 'prop-types';
 
 class NoteList extends Component {
   render() {
-    console.log(this.props, 'props in notelist');
     return (
       <NotefulContext.Consumer>
         {value => {
-          //console.log(value.value);
           return this.props.selected ? (
             <div className="noteList">
               {this.props.selected.map(note => (

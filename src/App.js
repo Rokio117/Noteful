@@ -23,7 +23,6 @@ class App extends Component {
         return response.json();
       })
       .then(response => {
-        console.log(response, 'first folder response');
         this.setState({ folders: response });
       });
     fetch('http://localhost:9090/notes')
@@ -31,9 +30,7 @@ class App extends Component {
         return response.json();
       })
       .then(notes => {
-        console.log(notes);
         this.setState({ notes: notes });
-        console.log(this.state, 'state');
       });
   }
 
@@ -52,13 +49,10 @@ class App extends Component {
 
   handleDelete = (note, path) => {
     const notes = this.state.notes.filter(noteId => note !== noteId.id);
-    console.log(notes, path);
     this.setState({ notes });
     fetch(`http://localhost:9090/notes/${note}`, {
       method: 'DELETE'
-    })
-      .then(response => response.json())
-      .then(responseJson => console.log(responseJson, ' responseJson'));
+    });
   };
 
   handleDeleteFolder = folder => {
@@ -69,8 +63,6 @@ class App extends Component {
       method: 'DELETE'
     });
     this.setState({ folders: folderId });
-    console.log(folder, 'folderId in handld delete folder');
-    console.log(folderId, 'filtered folder');
   };
   render() {
     return (

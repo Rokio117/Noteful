@@ -6,12 +6,12 @@ import NotefulContext from '../../context';
 class Note extends Component {
   render() {
     return (
-      <NotefulContext>
+      <NotefulContext.Consumer>
         {context => {
           return (
             <div className="note">
               {this.props.info[0] ? (
-                <div>
+                <div key={this.props.info[0].id}>
                   <div className="notename">{this.props.info[0].name}</div>
                   <div className="noteModified">
                     Modified on: {this.props.info[0].modified}
@@ -49,7 +49,7 @@ class Note extends Component {
             </div>
           );
         }}
-      </NotefulContext>
+      </NotefulContext.Consumer>
     );
   }
 }

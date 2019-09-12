@@ -7,15 +7,13 @@ import PropTypes from 'prop-types';
 
 class Folder extends Component {
   render() {
-    //console.log(this.props.id, 'id in folder');
     return (
       <NotefulContext.Consumer>
         {value => {
           return (
-            <div className="folder">
+            <div className="folder" key={this.props.id}>
               <NavLink
-                onClick={console.log(this.props.id, 'id for folder')}
-                key={this.props.id}
+                //key={this.props.id}
                 to={`/folder/${this.props.id}`}
                 className="folder"
               >

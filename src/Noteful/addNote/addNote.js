@@ -21,11 +21,9 @@ class AddNote extends Component {
   }
   noteChange(content) {
     this.setState({ content: { content: content, changed: true } });
-    console.log(content);
   }
   folderChange(folder) {
     this.setState({ folder: { folderName: folder, changed: true } });
-    console.log(folder, 'folder id');
   }
 
   validateName() {
@@ -52,12 +50,9 @@ class AddNote extends Component {
     }
   }
   render() {
-    //console.log(this.props.history.location.key, 'key in addnote');
-
     return (
       <NotefulContext.Consumer>
         {value => {
-          //console.log(value, 'value in AddNote');
           const folders = value.value.folders.map(folder => {
             return (
               <option value={folder.name} key={folder.name}>
@@ -75,8 +70,6 @@ class AddNote extends Component {
               <form
                 id="noteField"
                 onSubmit={e => {
-                  console.log(folderId[0].id);
-                  console.log(e, 'event in onsubmit');
                   e.preventDefault();
                   const date = new Date();
                   fetch('http://localhost:9090/notes', {
@@ -92,13 +85,7 @@ class AddNote extends Component {
                     .then(response => response.json())
                     .then(responseJson => {
                       value.handleAddNote(responseJson);
-                      console.log(
-                        responseJson,
-                        'response in note server post request'
-                      );
                     });
-                  console.log(folderId, 'folderId');
-
                   this.props.history.goBack();
                 }}
               >
@@ -108,7 +95,6 @@ class AddNote extends Component {
                   id="folderSelect"
                   name="selectFolder"
                   onChange={e => {
-                    console.log(e, 'event in folderselect on change');
                     this.folderChange(e.target.value);
                   }}
                 >
