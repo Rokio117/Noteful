@@ -53,11 +53,14 @@ class addFolder extends Component {
                   type="text"
                   id="folderInput"
                   ref={this.folderInput}
-                  defaultValue="Charlie"
+                  placeholder="Charlie"
                   onChange={e => this.updateName(e.target.value)}
                 ></input>
                 <ValidationError message={this.validateName()} />
-                <button type="submit" disabled={this.validateName()}>
+                <button
+                  type="submit"
+                  disabled={!this.state.touched || this.validateName()}
+                >
                   Submit
                 </button>
                 <button

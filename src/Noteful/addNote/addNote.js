@@ -27,7 +27,7 @@ class AddNote extends Component {
   }
 
   validateName() {
-    const name = this.state.noteName;
+    const name = this.state.noteName.name.trim();
     if (name.changed) {
       if (name.name.length > 60) {
         return 'name must be less than 60 characters';
@@ -38,13 +38,19 @@ class AddNote extends Component {
     }
   }
 
+  validateFolder() {
+    if (this.state.folder.folderName === 'Pick A Folder') {
+      return true;
+    }
+  }
+
   validateContent() {
-    const content = this.state.content;
+    const content = this.state.content.content.trim();
     if (content.changed) {
-      if (content.content.length < 3) {
+      if (content.length < 3) {
         return 'note must be at least three characters';
       }
-      if (content.content.length > 1000) {
+      if (content.length > 1000) {
         return 'note must be less than 1000 characters';
       }
     }
@@ -98,7 +104,7 @@ class AddNote extends Component {
                     this.folderChange(e.target.value);
                   }}
                 >
-                  <option>Pick a folder</option>
+                  <option>Pick A Folder</option>
                   {folders}
                 </select>
                 <label htmlFor="nametext">Enter a name</label>
@@ -116,7 +122,18 @@ class AddNote extends Component {
                   onChange={e => this.noteChange(e.target.value)}
                 ></textarea>
                 <ValidationError message={this.validateContent()} />
-                <button type="submit" id="submitButton">
+                <button
+                  type="submit"
+                  id="submitButton"
+                  disabled={
+                    !this.state.folder.changed ||
+                    !this.state.noteName.changed ||
+                    !this.state.content.changed ||
+                    this.validateContent() ||
+                    this.validateName() ||
+                    this.validateFolder()
+                  }
+                >
                   Submit
                 </button>
                 <button
