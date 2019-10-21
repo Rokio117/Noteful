@@ -58,7 +58,6 @@ class AddNote extends Component {
     return (
       <NotefulContext.Consumer>
         {value => {
-          console.log(value.value.folders, 'value.value in addNote');
           const folders = value.value.folders.map(folder => {
             return (
               <option value={folder.folder_name} key={folder.folder_name}>
@@ -77,7 +76,6 @@ class AddNote extends Component {
                 id="noteField"
                 onSubmit={e => {
                   e.preventDefault();
-                  //const date = new Date();
                   fetch('http://localhost:8000/api/notes', {
                     method: 'POST',
                     body: JSON.stringify({

@@ -8,8 +8,6 @@ class Note extends Component {
     return (
       <NotefulContext.Consumer>
         {context => {
-          console.log(this.props.info[0], 'this.props.info[0] in Note');
-          console.log(this.props.info, 'this.props.info in Note');
           return (
             <div className="note">
               {this.props.info[0] ? (

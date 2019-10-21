@@ -5,12 +5,9 @@ import { withRouter } from 'react-router-dom';
 
 class notePageSideBar extends Component {
   render() {
-    console.log(this.props.history, 'prop info in notePageSideBar');
-
     return (
       <NotefulContext.Consumer>
         {value => {
-          console.log(this.props.history, 'history in notePageSideBar');
           const noteId = this.props.history.match
             ? this.props.history.match.params.noteId
             : null;

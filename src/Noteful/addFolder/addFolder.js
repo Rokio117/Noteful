@@ -32,7 +32,6 @@ class addFolder extends Component {
                 onSubmit={e => {
                   e.preventDefault();
                   const name = this.state.name;
-                  console.log(name, 'name in form');
                   fetch('http://localhost:8000/api/folders', {
                     method: 'POST',
                     body: JSON.stringify({ folder_name: `${name}` }),
@@ -40,7 +39,6 @@ class addFolder extends Component {
                   })
                     .then(response => response.json())
                     .then(responseJson => {
-                      console.log(responseJson, 'responseJson');
                       value.handleAddFolder(responseJson);
                     });
 

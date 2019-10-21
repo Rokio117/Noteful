@@ -7,7 +7,6 @@ class FolderSelector extends Component {
     return (
       <NotefulContext.Consumer>
         {value => {
-          console.log(value, 'value in Folder Selector');
           return <div>Select a Folder</div>;
         }}
       </NotefulContext.Consumer>
