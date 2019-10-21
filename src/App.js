@@ -37,9 +37,11 @@ class App extends Component {
   state = this.state;
 
   handleAddFolder = response => {
+    console.log('handleaddfolderran');
     let stateCount = this.state.stateChange;
     this.state.folders.push(response);
-    this.setState({ stateChange: `${stateCount + 1}` });
+    const newState = this.state;
+    this.setState({ newState });
   };
   handleAddNote = response => {
     this.state.notes.push(response);
@@ -59,10 +61,17 @@ class App extends Component {
     const folderId = this.state.folders.filter(
       folderId => folder !== folderId.id
     );
+    let notes = this.state.notes.filter(note => note.folder !== folder);
+    if (notes === []) {
+      notes = this.state.notes;
+    }
+    console.log(this.state.notes);
+    console.log(folder, 'folder');
+    console.log(notes, 'notes');
     fetch(`http://localhost:8000/api/folders/${folder}`, {
       method: 'DELETE'
     });
-    this.setState({ folders: folderId });
+    this.setState({ folders: folderId, notes: notes });
   };
   render() {
     return (

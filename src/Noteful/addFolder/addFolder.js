@@ -26,6 +26,7 @@ class addFolder extends Component {
     return (
       <NotefulContext.Consumer>
         {value => {
+          console.log(value, 'value in addFolder');
           return (
             <fieldset>
               <form
@@ -39,6 +40,7 @@ class addFolder extends Component {
                   })
                     .then(response => response.json())
                     .then(responseJson => {
+                      console.log(responseJson);
                       value.handleAddFolder(responseJson);
                     });
 
