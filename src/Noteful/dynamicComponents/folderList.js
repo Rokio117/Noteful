@@ -12,8 +12,12 @@ class FolderList extends Component {
           return (
             <div className="folderList">
               {value.value.folders.map(folder =>
-                folder.name ? (
-                  <Folder name={folder.name} id={folder.id} key={folder.id} />
+                folder.folder_name ? (
+                  <Folder
+                    name={folder.folder_name}
+                    id={folder.id}
+                    key={folder.id}
+                  />
                 ) : null
               )}
               <Link to="/addFolder" className="addFolderButton">

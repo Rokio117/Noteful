@@ -15,7 +15,7 @@ class NotePageMainSection extends Component {
             ''
           );
           const noteInfo = value.value.notes;
-          const note = noteInfo.filter(note => note.id === noteId);
+          const note = noteInfo.filter(note => note.id == noteId);
 
           console.log(note, 'note');
           return (

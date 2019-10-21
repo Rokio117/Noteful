@@ -35,7 +35,7 @@ class addFolder extends Component {
                   console.log(name, 'name in form');
                   fetch('http://localhost:8000/api/folders', {
                     method: 'POST',
-                    body: JSON.stringify({ name: `${name}` }),
+                    body: JSON.stringify({ folder_name: `${name}` }),
                     headers: { 'Content-Type': 'application/json' }
                   })
                     .then(response => response.json())

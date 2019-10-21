@@ -16,9 +16,8 @@ class FolderPage extends Component {
             ''
           );
           const notes = value.value.notes;
-          const selectedFolder = notes.filter(
-            note => note.folderId === folderId
-          );
+          const selectedFolder = notes.filter(note => note.folder == folderId);
+          console.log(selectedFolder, 'selectedFolder in FolderPage');
           return (
             <>
               <Header />

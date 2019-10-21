@@ -58,16 +58,17 @@ class AddNote extends Component {
     return (
       <NotefulContext.Consumer>
         {value => {
+          console.log(value.value.folders, 'value.value in addNote');
           const folders = value.value.folders.map(folder => {
             return (
-              <option value={folder.name} key={folder.name}>
-                {folder.name}
+              <option value={folder.folder_name} key={folder.folder_name}>
+                {folder.folder_name}
               </option>
             );
           });
 
           const folderId = value.value.folders.filter(
-            folder => folder.name === this.state.folder.folderName
+            folder => folder.folder_name === this.state.folder.folderName
           );
 
           return (
@@ -76,13 +77,12 @@ class AddNote extends Component {
                 id="noteField"
                 onSubmit={e => {
                   e.preventDefault();
-                  const date = new Date();
+                  //const date = new Date();
                   fetch('http://localhost:8000/api/notes', {
                     method: 'POST',
                     body: JSON.stringify({
                       name: this.state.noteName.name,
-                      modified: date,
-                      folderId: folderId[0].id,
+                      folder: folderId[0].id,
                       content: this.state.content.content
                     }),
                     headers: { 'Content-Type': 'application/json' }

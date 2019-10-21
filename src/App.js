@@ -23,6 +23,7 @@ class App extends Component {
         return response.json();
       })
       .then(response => {
+        console.log(response);
         this.setState({ folders: response });
       });
     fetch('http://localhost:8000/api/notes')
@@ -30,6 +31,7 @@ class App extends Component {
         return response.json();
       })
       .then(notes => {
+        console.log(notes);
         this.setState({ notes: notes });
       });
   }
