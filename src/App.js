@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:8000/folders', {
+    fetch('http://localhost:8000/api/folders', {
       method: 'GET'
     })
       .then(response => {
@@ -25,7 +25,7 @@ class App extends Component {
       .then(response => {
         this.setState({ folders: response });
       });
-    fetch('http://localhost:8000/notes')
+    fetch('http://localhost:8000/api/notes')
       .then(response => {
         return response.json();
       })
@@ -51,7 +51,7 @@ class App extends Component {
     console.log(note, 'note in handleDelete');
     const notes = this.state.notes.filter(noteId => note !== noteId.id);
     this.setState({ notes });
-    fetch(`http://localhost:8000/notes/${note}`, {
+    fetch(`http://localhost:8000/api/notes/${note}`, {
       method: 'DELETE'
     });
   };
@@ -60,7 +60,7 @@ class App extends Component {
     const folderId = this.state.folders.filter(
       folderId => folder !== folderId.id
     );
-    fetch(`http://localhost:8000/folders/${folder}`, {
+    fetch(`http://localhost:8000/api/folders/${folder}`, {
       method: 'DELETE'
     });
     this.setState({ folders: folderId });

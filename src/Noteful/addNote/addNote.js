@@ -77,7 +77,7 @@ class AddNote extends Component {
                 onSubmit={e => {
                   e.preventDefault();
                   const date = new Date();
-                  fetch('http://localhost:8000/notes', {
+                  fetch('http://localhost:8000/api/notes', {
                     method: 'POST',
                     body: JSON.stringify({
                       name: this.state.noteName.name,

@@ -33,7 +33,7 @@ class addFolder extends Component {
                   e.preventDefault();
                   const name = this.state.name;
                   console.log(name, 'name in form');
-                  fetch('http://localhost:8000/folders', {
+                  fetch('http://localhost:8000/api/folders', {
                     method: 'POST',
                     body: JSON.stringify({ name: `${name}` }),
                     headers: { 'Content-Type': 'application/json' }
