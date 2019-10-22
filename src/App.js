@@ -37,11 +37,9 @@ class App extends Component {
   state = this.state;
 
   handleAddFolder = response => {
-    console.log('handleaddfolderran');
-    let stateCount = this.state.stateChange;
-    this.state.folders.push(response);
-    const newState = this.state;
-    this.setState({ newState });
+    console.log('handleaddfolder ran');
+    const newFolders = [...this.state.folders, response];
+    this.setState({ ...this.state, folders: newFolders });
   };
   handleAddNote = response => {
     this.state.notes.push(response);
