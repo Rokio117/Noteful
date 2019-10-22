@@ -37,7 +37,6 @@ class App extends Component {
   state = this.state;
 
   handleAddFolder = response => {
-    console.log('handleaddfolder ran');
     const newFolders = [...this.state.folders, response];
     this.setState({ ...this.state, folders: newFolders });
   };
@@ -63,9 +62,6 @@ class App extends Component {
     if (notes === []) {
       notes = this.state.notes;
     }
-    console.log(this.state.notes);
-    console.log(folder, 'folder');
-    console.log(notes, 'notes');
     fetch(`http://localhost:8000/api/folders/${folder}`, {
       method: 'DELETE'
     });
