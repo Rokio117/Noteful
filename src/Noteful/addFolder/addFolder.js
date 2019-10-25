@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import NotefulContext from '../../context';
 import ValidationError from './folderValidation';
+import baseUrl from '../../App';
 
 class addFolder extends Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class addFolder extends Component {
                 onSubmit={e => {
                   e.preventDefault();
                   const name = this.state.name;
-                  fetch('http://localhost:8000/api/folders', {
+                  fetch(`${baseUrl}folders`, {
                     method: 'POST',
                     body: JSON.stringify({ folder_name: `${name}` }),
                     headers: { 'Content-Type': 'application/json' }

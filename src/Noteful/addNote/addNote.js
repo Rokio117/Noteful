@@ -5,6 +5,7 @@ import './addNote.css';
 import { Link } from 'react-router-dom';
 import FolderSelector from './folderSelector';
 import ValidationError from '../addFolder/folderValidation';
+import baseUrl from '../../App';
 
 class AddNote extends Component {
   constructor(props) {
@@ -76,7 +77,7 @@ class AddNote extends Component {
                 id="noteField"
                 onSubmit={e => {
                   e.preventDefault();
-                  fetch('http://localhost:8000/api/notes', {
+                  fetch(`${baseUrl}notes`, {
                     method: 'POST',
                     body: JSON.stringify({
                       name: this.state.noteName.name,

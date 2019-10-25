@@ -9,7 +9,7 @@ import NotefulContext from './context';
 import FolderList from '.././src/Noteful/addFolder/addFolder';
 import AddNote from './/./Noteful/addNote/addNote';
 
-const baseUrl = 'https://fast-plains-77694.herokuapp.com:8000/api/';
+export const baseUrl = 'https://fast-plains-77694.herokuapp.com/api/';
 
 class App extends Component {
   constructor(props) {
