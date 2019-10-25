@@ -5,7 +5,8 @@ import './addNote.css';
 import { Link } from 'react-router-dom';
 import FolderSelector from './folderSelector';
 import ValidationError from '../addFolder/folderValidation';
-import baseUrl from '../../App';
+
+const baseUrl = 'https://fast-plains-77694.herokuapp.com/api/';
 
 class AddNote extends Component {
   constructor(props) {

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import NotefulContext from '../../context';
 import ValidationError from './folderValidation';
-import baseUrl from '../../App';
 
+const baseUrl = 'https://fast-plains-77694.herokuapp.com/api/';
 class addFolder extends Component {
   constructor(props) {
     super(props);
