@@ -9,6 +9,8 @@ import NotefulContext from './context';
 import FolderList from '.././src/Noteful/addFolder/addFolder';
 import AddNote from './/./Noteful/addNote/addNote';
 
+const baseUrl = 'https://fast-plains-77694.herokuapp.com:8000/api/';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +18,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:8000/api/folders', {
+    fetch(`${baseUrl}folders`, {
       method: 'GET'
     })
       .then(response => {
@@ -25,7 +27,7 @@ class App extends Component {
       .then(response => {
         this.setState({ folders: response });
       });
-    fetch('http://localhost:8000/api/notes')
+    fetch(`${baseUrl}notes`)
       .then(response => {
         return response.json();
       })
@@ -49,7 +51,7 @@ class App extends Component {
   handleDelete = note => {
     const notes = this.state.notes.filter(noteId => note !== noteId.id);
     this.setState({ notes });
-    fetch(`http://localhost:8000/api/notes/${note}`, {
+    fetch(`${baseUrl}notes/${note}`, {
       method: 'DELETE'
     });
   };
@@ -62,7 +64,7 @@ class App extends Component {
     if (notes === []) {
       notes = this.state.notes;
     }
-    fetch(`http://localhost:8000/api/folders/${folder}`, {
+    fetch(`${baseUrl}folders/${folder}`, {
       method: 'DELETE'
     });
     this.setState({ folders: folderId, notes: notes });
@@ -108,3 +110,7 @@ class App extends Component {
 }
 
 export default App;
+
+//https://fast-plains-77694.herokuapp.com
+
+//${baseUrl}folders
